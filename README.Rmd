@@ -1,0 +1,63 @@
+# Projet Phytopathologie
+
+Ce projet propose un pipeline complet d'analyse statistique et visuelle sur des données phytopathologiques.  
+Il inclut le nettoyage des données, des analyses descriptives et comparatives, une analyse multivariée (ACP), un modèle prédictif, ainsi que la génération de visuels et de rapports automatisés.
+
+---
+
+## Structure du projet
+
+- data
+-scripts
+-outputs
+-main.R
+-rapport_final.Rmd
+
+
+---
+
+##  Étapes d'exécution
+
+1. **Préparer les données**  
+   - Place le fichier Excel brut `Données-Phytopathologie.xlsx` dans le dossier `data/`.  
+   - Le script `main.R` copie et nettoie automatiquement les données.
+
+2. **Lancer le pipeline**  
+   - Exécute `main.R` dans R ou RStudio.  
+   - Les résultats (tableaux et graphiques) sont générés et sauvegardés dans `outputs/`.
+
+3. **Consulter les résultats**  
+   - `outputs/Resultats_Analyses.xlsx` → Tableaux descriptifs, ANOVA, Tukey.  
+   - `outputs/Graphique_IS_Temps.png` → Progression de l’indice de sévérité.  
+   - `outputs/Graphique_Boxplot_Traitements.png` → Comparaison des traitements.  
+   - `outputs/Graphique_ACP.png` → Analyse en composantes principales.  
+   - `outputs/Graphique_Modele_Predit.png` → Valeurs réelles vs prédictions.
+
+4. **Générer le rapport HTML**  
+   - Utilise RMarkdown pour produire un rapport interactif :  
+     ```r
+     rmarkdown::render("rapport_final.Rmd", output_format = "html_document")
+     ```
+   - Le rapport final inclura texte, tableaux et visuels.
+
+---
+
+## Dépendances
+
+- **R ≥ 4.0**
+- Packages nécessaires :
+  - `tidyverse`
+  - `readxl`
+  - `janitor`
+  - `writexl`
+  - `FactoMineR`
+  - `factoextra`
+  - `here`
+  - `rmarkdown`
+
+Installe-les avec :
+```r
+install.packages(c("tidyverse", "readxl", "janitor", "writexl", "FactoMineR", "factoextra", "here", "rmarkdown"))
+
+
+
